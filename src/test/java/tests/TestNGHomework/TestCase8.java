@@ -24,7 +24,7 @@ public class TestCase8 {
         BrowserUtils.wait(2);
     }
 
-    @Test(description = "Autocomplete practice")
+    @Test(description = "Test case #8")
     public void test(){
         driver.findElement(By.linkText("Autocomplete")).click();
         BrowserUtils.wait(2);
@@ -35,7 +35,7 @@ public class TestCase8 {
 
         String expectedResult = "You selected: United States of America";
         String actualResult = driver.findElement(By.id("result")).getText();
-        Assert.assertEquals(expectedResult, actualResult);
+        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @AfterTest

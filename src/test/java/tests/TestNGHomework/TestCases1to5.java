@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import utils.BrowserFactory;
 import utils.BrowserUtils;
 
@@ -17,7 +15,7 @@ public class TestCases1to5 {
 
     WebDriver driver = BrowserFactory.getDriver("chrome");
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
         driver.get("https://practice-cybertekschool.herokuapp.com/");
         driver.manage().window().maximize();
@@ -27,7 +25,7 @@ public class TestCases1to5 {
         BrowserUtils.wait(1);
     }
 
-    @Test(description = "Verify that warning message is displayed: 'The date of birth is not valid'")
+    @Test(description = "Test case #1")
     public void test1() {
         driver.findElement(By.name("birthday")).sendKeys("wrong_dob");
         BrowserUtils.wait(2);
@@ -38,7 +36,7 @@ public class TestCases1to5 {
         Assert.assertEquals(actualText, expectedText);
     }
 
-    @Test(description = "Verify that following options for programming languages are displayed: c++, java, JavaScript")
+    @Test(description = "Test case #2")
     public void test2() {
         WebElement programmingLanguages = driver.findElement(By.xpath("//label[text()='Select programming languages']"));
         BrowserUtils.wait(2);
@@ -54,29 +52,29 @@ public class TestCases1to5 {
 
     }
 
-    @Test(description = "Verify that warning message is displayed: 'first name must be more than 2 and less than 64 characters long'")
+    @Test(description = "Test case #3")
     public void test3() {
         driver.findElement(By.name("firstname")).sendKeys("a");
         BrowserUtils.wait(2);
 
         WebElement warningMessage = driver.findElement(By.xpath("//small[starts-with(text(),'first name must')]"));
-        String expectedWarningMessage = warningMessage.getText();
-        String actualWarningMessage = "first name must be more than 2 and less than 64 characters long";
-        Assert.assertEquals(expectedWarningMessage, actualWarningMessage);
+        String expectedWarningMessage = "first name must be more than 2 and less than 64 characters long";
+        String actualWarningMessage = warningMessage.getText();
+        Assert.assertEquals(actualWarningMessage, expectedWarningMessage);
     }
 
-    @Test(description = "Verify that warning message is displayed: 'The last name must be more than 2 and less than 64 characters long'")
+    @Test(description = "Test case #4")
     public void test4() {
         driver.findElement(By.name("lastname")).sendKeys("b");
         BrowserUtils.wait(2);
 
         WebElement warningMessage = driver.findElement(By.xpath("//small[starts-with(text(),'The last name must')]"));
-        String expectedWarningMessage = warningMessage.getText();
-        String actualWarningMessage = "The last name must be more than 2 and less than 64 characters long";
-        Assert.assertEquals(expectedWarningMessage, actualWarningMessage);
+        String expectedWarningMessage = "The last name must be more than 2 and less than 64 characters long";
+        String actualWarningMessage = warningMessage.getText();
+        Assert.assertEquals(actualWarningMessage, expectedWarningMessage);
     }
 
-    @Test(description = "Verify that following success message is displayed: 'You've successfully completed registration!'")
+    @Test(description = "Test case #5")
     public void test5() {
         //Entering first name
         driver.findElement(By.name("firstname")).sendKeys("Hakan");
@@ -136,9 +134,8 @@ public class TestCases1to5 {
         WebElement successMessage = driver.findElement(By.xpath("//*[@id='content']/div/div/p"));
         String expectedSuccessMessage = "You've successfully completed registration!";
         String actualSuccessMessage = successMessage.getText();
-        Assert.assertEquals(expectedSuccessMessage, actualSuccessMessage);
+        Assert.assertEquals(actualSuccessMessage, expectedSuccessMessage);
         BrowserUtils.wait(1);
-
     }
 
     @AfterTest

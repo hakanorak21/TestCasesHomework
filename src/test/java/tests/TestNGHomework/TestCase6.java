@@ -21,7 +21,7 @@ public class TestCase6 {
         BrowserUtils.wait(2);
     }
 
-    @Test
+    @Test (description = "Test case #6")
     public void test() {
         String email = driver.findElement(By.id("email")).getText();
         driver.navigate().to("https://practice-cybertekschool.herokuapp.com/");
@@ -34,20 +34,20 @@ public class TestCase6 {
         BrowserUtils.wait(2);
         String expectedMessage = "Thank you for signing up. Click the button below to return to the home page.";
         String actualMessage = driver.findElement(By.name("signup_message")).getText();
-        Assert.assertEquals(expectedMessage, actualMessage);
+        Assert.assertEquals(actualMessage, expectedMessage);
         driver.navigate().to("https://www.tempmailaddress.com/");
         BrowserUtils.wait(2);
 
         WebElement inbox = driver.findElement(By.xpath("//tbody[@id='schranka']/tr[1]/td[1]"));
         String expectedInbox = " do-not-reply@practice.cybertekschool.com";
         String actualInbox = inbox.getText();
-        Assert.assertEquals(expectedInbox, actualInbox);
+        Assert.assertEquals(actualInbox, expectedInbox);
 
         inbox.click();
         BrowserUtils.wait(2);
         String expectedFrom = "do-not-reply@practice.cybertekschool.com";
         String actualFrom = driver.findElement(By.id("odesilatel")).getText();
-        Assert.assertEquals(expectedFrom, actualFrom);
+        Assert.assertEquals(actualFrom, expectedFrom);
 
         String expectedSubject = "Thanks for subscribing to practice.cybertekschool.com!";
         String actualSubject = driver.findElement(By.id("predmet")).getText();

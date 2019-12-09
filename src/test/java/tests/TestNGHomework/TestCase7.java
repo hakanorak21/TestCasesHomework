@@ -21,7 +21,7 @@ public class TestCase7 {
         BrowserUtils.wait(2);
     }
 
-    @Test(description = "File upload practice")
+    @Test(description = "Test case #7")
     public void test(){
         driver.findElement(By.linkText("File Upload")).click();
         BrowserUtils.wait(2);
@@ -34,11 +34,11 @@ public class TestCase7 {
 
         String expectedMessage = "File Uploaded!";
         String actualMessage = driver.findElement(By.xpath("//div[@id=\"content\"]/div/h3")).getText();
-        Assert.assertEquals(expectedMessage, actualMessage);
+        Assert.assertEquals(actualMessage, expectedMessage);
 
         String expectedFileName = "test.txt";
         String actualFileName = driver.findElement(By.id("uploaded-files")).getText();
-        Assert.assertEquals(expectedFileName, actualFileName);
+        Assert.assertEquals(actualFileName, expectedFileName);
     }
 
     @AfterTest
