@@ -1,4 +1,4 @@
-package tests.homework_3;
+package tests.homework.basicNavigationHomework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,19 +24,24 @@ public class TestCase1 {
         driver.get("https://practice-cybertekschool.herokuapp.com");
         driver.manage().window().maximize();
 
-        WebElement signUp = driver.findElement(By.xpath("//a[@href='/sign_up']"));
+        //WebElement signUp = driver.findElement(By.xpath("//a[@href='/sign_up']"));
+        WebElement signUp = driver.findElement(By.linkText("Sign Up For Mailing List"));
         signUp.click();
         BrowserUtils.wait(2);
 
-        WebElement fullName = driver.findElement(By.name("full_name"));
+        //WebElement fullName = driver.findElement(By.name("full_name"));
+        //WebElement fullName = driver.findElement(By.xpath("//input[@name='full_name']"));
+        WebElement fullName = driver.findElement(By.xpath("//input[@type='text']"));
         fullName.sendKeys("Hakan Orak");
         BrowserUtils.wait(1);
 
-        WebElement email = driver.findElement(By.name("email"));
+        //WebElement email = driver.findElement(By.name("email"));
+        WebElement email = driver.findElement(By.xpath("//input[@type='email']"));
         email.sendKeys("hakanorak21@yahoo.com");
         BrowserUtils.wait(1);
 
-        driver.findElement(By.name("wooden_spoon")).click();
+        //driver.findElement(By.name("wooden_spoon")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
         BrowserUtils.wait(2);
 
         String expected = "Thank you for signing up. Click the button below to return to the home page.";

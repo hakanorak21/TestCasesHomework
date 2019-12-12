@@ -1,4 +1,4 @@
-package tests.homework_3;
+package tests.homework.basicNavigationHomework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

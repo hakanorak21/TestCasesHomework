@@ -1,4 +1,4 @@
-package tests.TestNGHomework;
+package tests.homework.testNGHomework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

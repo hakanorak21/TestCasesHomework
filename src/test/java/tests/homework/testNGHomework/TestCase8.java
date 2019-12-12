@@ -1,17 +1,13 @@
-package tests.TestNGHomework;
+package tests.homework.testNGHomework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utils.BrowserFactory;
 import utils.BrowserUtils;
-
-import java.util.List;
 
 public class TestCase8 {
 
